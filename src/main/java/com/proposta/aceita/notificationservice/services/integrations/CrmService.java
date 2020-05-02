@@ -32,7 +32,11 @@ public class CrmService extends IntegrationService {
         authHeader = "Basic " + Base64Utils.encodeToString(auth.getBytes());
     }
 
-    public Optional<User> getBuyerEmail(Integer propertyId) {
-        return crmClient.getUser(authHeader, propertyId);
+    public Optional<User> getUserByProperty(Integer propertyId) {
+        return crmClient.getUserByProperty(authHeader, propertyId);
+    }
+
+    public Optional<User> getUserByInterest(Integer propertyId) {
+        return crmClient.getUserByInterest(authHeader, propertyId);
     }
 }

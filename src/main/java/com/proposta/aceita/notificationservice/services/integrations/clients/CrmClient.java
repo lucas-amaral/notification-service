@@ -10,6 +10,9 @@ import java.util.Optional;
 public interface CrmClient {
 
     @GetMapping("/internal/properties/{propertyId}/users")
-    Optional<User> getUser(@RequestHeader("Authorization") String authHeader, @PathVariable Integer propertyId);
+    Optional<User> getUserByProperty(@RequestHeader("Authorization") String authHeader, @PathVariable Integer propertyId);
+
+    @GetMapping("/internal/interests/{interestId}/users")
+    Optional<User> getUserByInterest(@RequestHeader("Authorization") String authHeader, @PathVariable Integer interestId);
 
 }

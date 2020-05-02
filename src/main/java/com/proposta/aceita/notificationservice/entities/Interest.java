@@ -10,7 +10,6 @@ import java.util.StringJoiner;
 
 public class Interest {
     private final Integer id;
-    private final User user;
     private final BigDecimal value;
     private final Boolean financing;
     private final BigDecimal financingValue;
@@ -27,7 +26,6 @@ public class Interest {
     private final List<Barter> barters;
 
     public Interest(@JsonProperty("id") Integer id,
-                    @JsonProperty("user") User user,
                     @JsonProperty("value") BigDecimal value,
                     @JsonProperty("financing") Boolean financing,
                     @JsonProperty("financingValue") BigDecimal financingValue,
@@ -43,7 +41,6 @@ public class Interest {
                     @JsonProperty("barbecueGrill") Boolean barbecueGrill,
                     @JsonProperty("barters") List<Barter> barters) {
         this.id = id;
-        this.user = user;
         this.value = value;
         this.financing = financing;
         this.financingValue = financingValue;
@@ -62,10 +59,6 @@ public class Interest {
 
     public Integer getId() {
         return id;
-    }
-
-    public User getUser() {
-        return user;
     }
 
     public BigDecimal getValue() {
@@ -130,7 +123,6 @@ public class Interest {
         if (o == null || getClass() != o.getClass()) return false;
         Interest interest = (Interest) o;
         return Objects.equals(id, interest.id) &&
-                Objects.equals(user, interest.user) &&
                 Objects.equals(value, interest.value) &&
                 Objects.equals(financing, interest.financing) &&
                 Objects.equals(financingValue, interest.financingValue) &&
@@ -149,14 +141,13 @@ public class Interest {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, value, financing, financingValue, types, neighborhoodIds, dorms, suites, bathrooms, garages, pool, balcony, elevator, barbecueGrill, barters);
+        return Objects.hash(id, value, financing, financingValue, types, neighborhoodIds, dorms, suites, bathrooms, garages, pool, balcony, elevator, barbecueGrill, barters);
     }
 
     @Override
     public String toString() {
         return new StringJoiner(", ", Interest.class.getSimpleName() + "[", "]")
                 .add("id=" + id)
-                .add("user=" + user)
                 .add("value=" + value)
                 .add("financing=" + financing)
                 .add("financingValue=" + financingValue)

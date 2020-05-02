@@ -21,7 +21,7 @@ public class EmailService {
 
     public void sendMatchEmailForSeller(Negotiation negotiation) {
 
-        crmService.getBuyerEmail(negotiation.getSale().getPropertyId()).ifPresentOrElse(user -> {
+        crmService.getUserByProperty(negotiation.getSale().getPropertyId()).ifPresentOrElse(user -> {
 
             var variables = Map.of("name", user.getName());
 
@@ -37,13 +37,17 @@ public class EmailService {
 
     public void sendMatchEmailForBuyer(Negotiation negotiation) {
 
-        var variables = Map.of("name", negotiation.getInterest().getUser().getName());
+        crmService.getUserByInterest(negotiation.getInterest().getId()).ifPresentOrElse(user -> {
 
-        var message = templateService.process("propertyEmail", variables);
+            var variables = Map.of("name", user.getName());
 
-        var subject = "Você possui uma novo imóvel para avaliar";
+            var message = templateService.process("propertyEmail", variables);
 
-        sendGridEmailService.sendText("propostaceita+contato@gmail.com", negotiation.getInterest().getUser().getEmail(), subject, message);
+            var subject = "Você possui uma novo imóvel para avaliar";
+
+            sendGridEmailService.sendText("propostaceita+contato@gmail.com", user.getEmail(), subject, message);
+
+        }, () -> { throw new  RuntimeException("No user found"); });
 
     }
 

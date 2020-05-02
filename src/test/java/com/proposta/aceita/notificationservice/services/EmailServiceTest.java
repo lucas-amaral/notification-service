@@ -46,7 +46,7 @@ public class EmailServiceTest {
 
         var message = "{message body}";
 
-        when(crmService.getBuyerEmail(propertyId)).thenReturn(Optional.of(user));
+        when(crmService.getUserByProperty(propertyId)).thenReturn(Optional.of(user));
         when(templateService.process("matchEmail", Map.of("name", user.getName()))).thenReturn(message);
 
         emailService.sendMatchEmailForSeller(negotiation);
@@ -64,7 +64,7 @@ public class EmailServiceTest {
         var sale = new Sale(2, propertyId, null, null, null, null, null, null, false, false, false, false, null, false, null, false, null, false, null);
         var negotiation = new Negotiation("23-243-1das-112", null, sale, null);
 
-        when(crmService.getBuyerEmail(propertyId)).thenReturn(Optional.empty());
+        when(crmService.getUserByProperty(propertyId)).thenReturn(Optional.empty());
 
         Assertions.assertThrows(RuntimeException.class,
                 () -> emailService.sendMatchEmailForSeller(negotiation));
@@ -75,13 +75,16 @@ public class EmailServiceTest {
 
     @Test
     public void sendMatchEmailForBuyer() {
+        var interestId = 2;
+
         var user = new User("test", "test@test.com");
-        var interest = new Interest(2, user, null, null, null, null, null, null, null, null, null, null, null, false, null, null);
+        var interest = new Interest(interestId,  null, null, null, null, null, null, null, null, null, null, null, false, null, null);
         var negotiation = new Negotiation("23-243-1das-112", interest, null, null);
 
 
         var message = "{message body}";
 
+        when(crmService.getUserByInterest(interestId)).thenReturn(Optional.of(user));
         when(templateService.process("propertyEmail", Map.of("name", user.getName()))).thenReturn(message);
 
         emailService.sendMatchEmailForBuyer(negotiation);
@@ -90,6 +93,23 @@ public class EmailServiceTest {
                 "test@test.com",
                 "Você possui uma novo imóvel para avaliar",
                 message);
+    }
+
+
+    @Test
+    public void sendMatchEmailForBuyerWithNoUser() {
+        var interestId = 2;
+
+        var interest = new Interest(interestId,  null, null, null, null, null, null, null, null, null, null, null, false, null, null);
+        var negotiation = new Negotiation("23-243-1das-112", interest, null, null);
+
+        when(crmService.getUserByProperty(interestId)).thenReturn(Optional.empty());
+
+        Assertions.assertThrows(RuntimeException.class,
+                () -> emailService.sendMatchEmailForBuyer(negotiation));
+
+
+        verifyNoInteractions(sendGridEmailService, templateService);
     }
 
     @Test
