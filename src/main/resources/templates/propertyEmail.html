@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Welcome</title>
+</head>
+<style>
+    body {
+        font-family:'Cereal',Helvetica,Arial,sans-serif;font-weight:normal;
+        font-size:16px;
+        background:#f3f3f3;
+    }
+
+    table {
+        border-spacing:0;
+        border-collapse:collapse;
+        vertical-align:top;
+        height:100%;
+        width:100%;
+        padding:0;
+        margin:0;
+        text-align:left;
+        line-height:19px;
+        margin-bottom:0px !important;
+    }
+</style>
+<body>
+
+    <table dir="ltr">
+        <tr>
+            <th><img th:src="|cid:Icon|"/></th>
+        </tr>
+        <tr>
+            <td>Olá ${username},</td>
+            <td>Você possuí um novo imóvel para avaliar.</td>
+            <td>Para maiores informações acesse o <a href="https://crm-service.herokuapp.com">link</a>.</td>
+            <td>Obrigado,</td>
+            <td>Equipe Proposta Aceita</td>
+        </tr>
+    </table>
+
+</body>
+</html>

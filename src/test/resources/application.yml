@@ -1,0 +1,8 @@
+spring:
+  sendgrid:
+    api-key: api-key
+
+services:
+  internal:
+    username: user
+    password: password

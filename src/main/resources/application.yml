@@ -1,0 +1,8 @@
+spring:
+  sendgrid:
+    api-key: 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
+
+services:
+  internal:
+    username: internal
+    password: wUrw93cGGYczZKsU
