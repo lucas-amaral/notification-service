@@ -27,7 +27,7 @@ public class EmailService {
 
             var message = templateService.process("matchEmail", variables);
 
-            var subject = "Você possui uma nova proposta para avaliar";
+            var subject = "Você possui uma nova proposta";
 
             sendGridEmailService.sendText("propostaceita+contato@gmail.com", user.getEmail(), subject, message);
 

@@ -37,22 +37,21 @@ public class SendGridEmailService {
 
     private Response sendEmail(String from, String to, String subject, Content content) {
 
-        var  mail = new Mail(new Email(from), subject, new Email(to), content);
+        var mail = new Mail(new Email(from), subject, new Email(to), content);
         var request = new Request();
-        Response response = null;
 
         try {
 
             request.setMethod(Method.POST);
             request.setEndpoint("mail/send");
             request.setBody(mail.build());
-            this.sendGridClient.api(request);
+            return sendGridClient.api(request);
 
         } catch (IOException ex) {
             LOGGER.error("Error to send email to: {}, subject: {}", to, subject);
             LOGGER.error(ex.getMessage());
+            return null;
         }
 
-        return response;
     }
 }
