@@ -6,3 +6,9 @@ services:
   internal:
     username: user
     password: password
+
+  crm:
+    name: crm-service
+    url: https://crm-service.com
+    username: user
+    password: password

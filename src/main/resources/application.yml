@@ -6,3 +6,9 @@ services:
   internal:
     username: internal
     password: wUrw93cGGYczZKsU
+
+  crm:
+    name: crm-service
+    url: https://crm-service.herokuapp.com
+    username: internal
+    password: tinr3kahcuth3gie8bohc4yiXhedcfgx
