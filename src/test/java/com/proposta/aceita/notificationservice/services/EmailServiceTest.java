@@ -53,7 +53,7 @@ public class EmailServiceTest {
 
         verify(sendGridEmailService).sendText("propostaceita+contato@gmail.com",
                 "test@test.com",
-                "Você possui uma nova proposta para avaliar",
+                "Você possui uma nova proposta",
                 message);
     }
 
