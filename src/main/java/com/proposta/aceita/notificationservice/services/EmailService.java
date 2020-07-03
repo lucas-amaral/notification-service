@@ -29,7 +29,7 @@ public class EmailService {
 
             var subject = "Você possui uma nova proposta";
 
-            sendGridEmailService.sendText("propostaceita+contato@gmail.com", user.getEmail(), subject, message);
+            sendGridEmailService.sendHTML("propostaceita+contato@gmail.com", user.getEmail(), subject, message);
 
         }, () -> { throw new  RuntimeException("No user found"); });
 
@@ -45,7 +45,7 @@ public class EmailService {
 
             var subject = "Você possui uma novo imóvel para avaliar";
 
-            sendGridEmailService.sendText("propostaceita+contato@gmail.com", user.getEmail(), subject, message);
+            sendGridEmailService.sendHTML("propostaceita+contato@gmail.com", user.getEmail(), subject, message);
 
         }, () -> { throw new  RuntimeException("No user found"); });
 
@@ -61,7 +61,7 @@ public class EmailService {
 
         var subject = "Finalização de compra";
 
-        sendGridEmailService.sendText("propostaceita+contato@gmail.com", "propostaceita@gmail.com", subject, message);
+        sendGridEmailService.sendHTML("propostaceita+contato@gmail.com", "propostaceita@gmail.com", subject, message);
 
     }
 

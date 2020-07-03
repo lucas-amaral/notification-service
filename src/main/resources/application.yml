@@ -1,6 +1,7 @@
 spring:
   sendgrid:
-    api-key: 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
+    api-key: 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
+
 
 services:
   internal:

@@ -51,7 +51,7 @@ public class EmailServiceTest {
 
         emailService.sendMatchEmailForSeller(negotiation);
 
-        verify(sendGridEmailService).sendText("propostaceita+contato@gmail.com",
+        verify(sendGridEmailService).sendHTML("propostaceita+contato@gmail.com",
                 "test@test.com",
                 "Você possui uma nova proposta",
                 message);
@@ -89,7 +89,7 @@ public class EmailServiceTest {
 
         emailService.sendMatchEmailForBuyer(negotiation);
 
-        verify(sendGridEmailService).sendText("propostaceita+contato@gmail.com",
+        verify(sendGridEmailService).sendHTML("propostaceita+contato@gmail.com",
                 "test@test.com",
                 "Você possui uma novo imóvel para avaliar",
                 message);
@@ -123,7 +123,7 @@ public class EmailServiceTest {
 
         emailService.sendDealEmail(negotiation);
 
-        verify(sendGridEmailService).sendText("propostaceita+contato@gmail.com",
+        verify(sendGridEmailService).sendHTML("propostaceita+contato@gmail.com",
                 "propostaceita@gmail.com",
                 "Finalização de compra",
                 message);
