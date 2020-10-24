@@ -47,7 +47,7 @@ public class EmailServiceTest {
         var message = "{message body}";
 
         when(crmService.getUserByProperty(propertyId)).thenReturn(Optional.of(user));
-        when(templateService.process("matchEmail", Map.of("name", user.getName()))).thenReturn(message);
+        when(templateService.process("matchEmail", Map.of("username", user.getName()))).thenReturn(message);
 
         emailService.sendMatchEmailForSeller(negotiation);
 
@@ -85,7 +85,7 @@ public class EmailServiceTest {
         var message = "{message body}";
 
         when(crmService.getUserByInterest(interestId)).thenReturn(Optional.of(user));
-        when(templateService.process("propertyEmail", Map.of("name", user.getName()))).thenReturn(message);
+        when(templateService.process("propertyEmail", Map.of("username", user.getName()))).thenReturn(message);
 
         emailService.sendMatchEmailForBuyer(negotiation);
 
