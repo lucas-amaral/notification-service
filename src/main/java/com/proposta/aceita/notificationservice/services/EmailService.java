@@ -23,7 +23,7 @@ public class EmailService {
 
         crmService.getUserByProperty(negotiation.getSale().getPropertyId()).ifPresentOrElse(user -> {
 
-            var variables = Map.of("name", user.getName());
+            Map<String, Object> variables = Map.of("username", user.getName());
 
             var message = templateService.process("matchEmail", variables);
 
@@ -39,7 +39,7 @@ public class EmailService {
 
         crmService.getUserByInterest(negotiation.getInterest().getId()).ifPresentOrElse(user -> {
 
-            var variables = Map.of("name", user.getName());
+            Map<String, Object> variables = Map.of("username", user.getName());
 
             var message = templateService.process("propertyEmail", variables);
 
@@ -53,9 +53,7 @@ public class EmailService {
 
     public void sendDealEmail(Negotiation negotiation) {
 
-        var variables = Map.of(
-                "negotiationId", negotiation.getId()
-        );
+        Map<String, Object> variables = Map.of("negotiationId", negotiation.getId());
 
         var message = templateService.process("dealEmail", variables);
 

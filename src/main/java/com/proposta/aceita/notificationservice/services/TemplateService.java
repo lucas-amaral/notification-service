@@ -16,9 +16,9 @@ public class TemplateService {
         this.templateEngine = templateEngine;
     }
 
-    public String process(String templateName, Map<String, ?> variables) {
+    public String process(String templateName, Map<String, Object> variables) {
         final Context context = new Context();
-        context.setVariables((Map<String, Object>) variables);
+        context.setVariables(variables);
         return templateEngine.process(templateName, context);
     }
 

@@ -5,39 +5,75 @@
     <title>Welcome</title>
 </head>
 <style>
-    body {
-        font-family:'Cereal',Helvetica,Arial,sans-serif;font-weight:normal;
-        font-size:16px;
-        background:#f3f3f3;
-    }
-
-    table {
-        border-spacing:0;
-        border-collapse:collapse;
-        vertical-align:top;
-        height:100%;
-        width:100%;
-        padding:0;
-        margin:0;
-        text-align:left;
-        line-height:19px;
-        margin-bottom:0px !important;
-    }
 </style>
-<body>
+<body style="background:#f3f3f3; font-family: 'Cereal',Helvetica,Arial,sans-serif; font-weight: normal;">
+    <p>&nbsp;</p>
+    <table style="border-spacing: 0; border-collapse: collapse; vertical-align: top; width: 100%; color: #0a0a0a; padding: 0; margin: 0; text-align: left; font-size: 16px; line-height: 19px; background-color: white;">
+        <tr>
+            <td style="word-wrap: break-word; padding: 0; margin: 0; line-height: 19px; border-collapse: collapse!important;">
+                <table style="border-spacing: 0; padding: 0; width: 580px; margin: 0 auto; text-align: inherit; max-width: 580px;">
+                    <tr style="padding: 0;">
+                        <td style="padding: 0; margin: 0; line-height: 19px;">
+                            <div style="padding-bottom: 15px;">&nbsp;</div>
+                            <div>
+                                <table style="border-spacing: 0; padding: 0;">
+                                    <tr style="padding: 0; ">
+                                        <th style="  line-height: 19px; margin: 0 auto; width: 564px; padding: 0 16px 16px;">
+                                            <p style="padding: 0; margin: 0; max-width: 485px; font-weight: bold; color: #484848; font-size: 32px; line-height: 1.3;">
+                                                Você possuí uma nova proposta para avaliar.
+                                            </p>
+                                        </th>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div style="padding-bottom: 25px;">&nbsp;</div>
+                            <div>
+                                <table style="border-spacing: 0; padding: 0;">
 
-    <table dir="ltr">
-        <tr>
-            <th><img th:src="|cid:Icon|"/></th>
-        </tr>
-        <tr>
-            <td>Olá ${username},</td>
-            <td>Você possuí uma nova proposta para avaliar.</td>
-            <td>Acesse o <a href="https://crm-service.herokuapp.com">link</a> para ver os detalhes.</td>
-            <td>Obrigado,</td>
-            <td>Equipe Proposta Aceita</td>
+                                    <tr style="padding: 0;">
+                                        <th style="   line-height: 19px; margin: 0 auto; width: 564px; padding: 0 16px 16px;">
+                                            <p style="padding: 0; margin: 0; font-weight: 300; color: #484848; font-size: 18px; line-height: 1.4;">
+                                                Olá <span th:text="${username}"></span>,<br /><br />Você possuí uma nova proposta para avaliar.
+                                            </p>
+                                            <p style="padding: 0; margin: 0; font-weight: 300; color: #484848; font-size: 18px; line-height: 1.4;">
+                                                Para mais informações acesse nosso site no link a seguir.
+                                            </p>
+                                        </th>
+                                    </tr>
+
+                                </table>
+                            </div>
+                            <div style="padding-bottom: 8px;">&nbsp;</div>
+                            <div style="padding-top:16px; padding-bottom:24px">
+                                <table style="border-spacing:0; vertical-align:top; padding:0; width:100%;">
+                                    <tr style="padding:0; vertical-align:top;">
+                                        <th style="margin:0; padding: 0 16px;">
+                                            <a href="http://frontendpa.herokuapp.com/logon" style="text-decoration:none; background-color:#483df6; border-radius:4px; display:block; padding:19px 24px" target="_blank">
+                                                <p style="font-weight:normal;text-align:center; color:white; font-size:18px; line-height:26px; margin: 0;">
+                                                    Visualizar proposta
+                                                </p>
+                                            </a>
+                                        </th>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div style="padding-bottom: 24px;">
+                                <table style="border-spacing: 0; padding: 0; width: 100%; display: table;">
+                                    <tr style="padding: 0; ">
+                                        <th style="padding: 0 16px 16px;">
+                                            <p style="font-weight: 400; font-size: 18px; margin: 0;">
+                                                Equipe Proposta Aceita
+                                            </p>
+                                        </th>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div>&nbsp;</div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
         </tr>
     </table>
-
 </body>
 </html>
